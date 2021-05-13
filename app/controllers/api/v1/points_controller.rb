@@ -1,5 +1,5 @@
 class Api::V1::PointsController < ApplicationController
-    before_action :set_point, only: [:update]
+    before_action :set_point, only: [:update, :destroy]
 
     def index
         render json: Point.all
@@ -17,6 +17,14 @@ class Api::V1::PointsController < ApplicationController
     def update
         if @point.update(point_params)
             render json: { success: "Point has been updated successfully." }, status: :ok
+        else
+            render json: { errors: point.errors }, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        if @point.destroy
+            render json: { success: "Point has been deleted successfully." }, status: :ok
         else
             render json: { errors: point.errors }, status: :unprocessable_entity
         end
