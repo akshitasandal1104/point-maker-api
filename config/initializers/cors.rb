@@ -1,9 +1,9 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'https://glacial-scrubland-15511.herokuapp.com/'
-  
+      origins '*'    
       resource '*',
         headers: :any,
-        methods: [:get, :post]
+        methods: [:get, :post, :put, :patch, :delete, :options, :head, :others]
     end
   end
+  
