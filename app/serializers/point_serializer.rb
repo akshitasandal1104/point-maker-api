@@ -3,6 +3,6 @@ class PointSerializer < ActiveModel::Serializer
   attribute(:coordinates) { point }
 
   def point
-    point = RGeo::GeoJSON.encode(RGeo::GeoJSON.decode(self.coordinates))["coordinates"]
+    point = RGeo::GeoJSON.encode(RGeo::GeoJSON.decode(object.coordinates))["coordinates"]
   end
 end
