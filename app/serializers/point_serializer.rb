@@ -1,4 +1,9 @@
 class PointSerializer < ActiveModel::Serializer
   attributes :id, :title
-  # attribute(:coordinates) { RGeo::GeoJSON.encode(object.coordinates)["coordinates"] }
+  attribute(:coordinates) { point }
+
+  def point
+    point = RGeo::GeoJSON.decode(self.coordinates)
+    point = RGeo::GeoJSON.encode(point)["coordinates"]
+  end
 end
