@@ -54,3 +54,4 @@ gem 'rack-cors'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_model_serializers'
 gem "rgeo-geojson"
+gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
