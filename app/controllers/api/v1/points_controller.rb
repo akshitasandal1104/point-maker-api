@@ -1,6 +1,6 @@
 class Api::V1::PointsController < ApplicationController
     before_action :set_point, only: [:update, :destroy]
-    skip_before_filter :verify_authenticity_token , only: [:create]
+    skip_before_action :verify_authenticity_token , only: [:create]
 
     def index
         render json: Point.all
