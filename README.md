@@ -1,24 +1,68 @@
-# README
+# Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Point Maker API
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+### Clone the repository
 
-* System dependencies
+```shell
+git clone https://github.com/akshitasandal1104/point-maker-api.git
+cd point-maker-api
+```
 
-* Configuration
+### Check your Ruby version
 
-* Database creation
+```shell
+ruby -v
+```
 
-* Database initialization
+The ouput should start with something like `ruby 2.6.6`
 
-* How to run the test suite
+If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+rbenv install 2.6.6
+```
 
-* Deployment instructions
+### Install dependencies
 
-* ...
+Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
+
+```shell
+bundle && yarn
+```
+
+### Initialize the database
+
+```shell
+rails db:create db:migrate
+```
+
+### Add heroku remotes
+
+Using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
+
+```shell
+heroku git:remote -a glacial-scrubland-15511
+```
+
+## Serve
+
+```shell
+rails s
+```
+
+## Deploy
+
+### With Heroku pipeline (recommended)
+
+Go to the Heroku Dashboard and [promote the app to production](https://devcenter.heroku.com/articles/pipelines) or use Heroku CLI.
+
+### Directly to production (not recommended)
+
+Push to Heroku production remote:
+
+```shell
+git push heroku master
+```
